@@ -37,12 +37,14 @@
           <div class="card-body">
             <div class="row">
               <div class="col-12">
-                <button class="btn btn-primary my-2 w-100" onclick="loginAs(ADMIN)">Login as Admin</button>
+                <button type="button" class="btn btn-primary my-2 w-100" onclick="AdminAccount()">Login as
+                  Admin</button>
               </div>
             </div>
             <div class="row">
               <div class="col-12">
-                <button class="btn btn-secondary my-2 w-100" onclick="loginAs(STAFF)">Login as Staff</button>
+                <button type="button" class="btn btn-secondary my-2 w-100" onclick="StaffAccount()">Login as
+                  Staff</button>
               </div>
             </div>
           </div>
