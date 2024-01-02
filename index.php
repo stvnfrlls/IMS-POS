@@ -12,7 +12,7 @@
 <body>
   <div class="container">
     <div class="row justify-content-center align-items-center vh-100">
-      <div class="col-md-12 col-lg-5">
+      <div class="col-md-12 col-lg-6">
         <div class="card">
           <div class="card-body">
             <div id="response"></div>
@@ -29,6 +29,22 @@
                 Login
               </button>
             </form>
+          </div>
+        </div>
+      </div>
+      <div class="col-md-12 col-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-primary my-2 w-100" onclick="loginAs(ADMIN)">Login as Admin</button>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-12">
+                <button class="btn btn-secondary my-2 w-100" onclick="loginAs(STAFF)">Login as Staff</button>
+              </div>
+            </div>
           </div>
         </div>
       </div>

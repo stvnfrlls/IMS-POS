@@ -26,6 +26,42 @@ function login() {
   });
 }
 
+function loginAs(type) {
+  var email = '';
+  var password = '';
+
+  if (type === 'ADMIN') {
+    email = "admin@admin.com";
+    password = "Password";
+  } else if (type === 'STAFF') {
+    email = 'staff @staff.com';
+    password = 'Password';
+  }
+
+  $.ajax({
+    type: "POST",
+    url: "includes/requests/login.php",
+    data: {
+      username: email,
+      password: password,
+    },
+    dataType: "json",
+    success: function (response) {
+      if (response.success) {
+        window.location.href = response.redirect;
+      } else {
+        $("#response").html(
+          '<div class="alert alert-danger">' + response.message + "</div>"
+        );
+      }
+    },
+    error: function (xhr, error) {
+      console.log("Error:", error);
+      console.log("Response:", xhr.responseText);
+    },
+  });
+}
+
 function register() {
   var name = $("#inputName").val();
   var email = $("#inputEmail").val();
