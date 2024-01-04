@@ -2,6 +2,16 @@ function login() {
   var username = $("#username").val();
   var password = $("#password").val();
 
+  if (!username) {
+    $("#response").html('<div class="alert alert-danger">Please enter a username.</div>');
+    return;
+  }
+
+  if (!password) {
+    $("#response").html('<div class="alert alert-danger">Please enter a password.</div>');
+    return;
+  }
+
   $.ajax({
     type: "POST",
     url: "includes/requests/login.php",

@@ -267,12 +267,43 @@ function getproductData() {
 }
 
 function addProductData() {
+  var productName = $("#productName").val();
+  var productImage = $("#productImage")[0].files[0];
+  var inStock = $("#in_stocks").val();
+  var price = $("#price").val();
+  var expirationDate = $("#expirationDate").val();
+
+  if (!productName) {
+    alert("Please enter a product name.");
+    return;
+  }
+
+  if (!productImage) {
+    alert("Please choose a product image.");
+    return;
+  }
+
+  if (!inStock) {
+    alert("Please enter the number of items in stock.");
+    return;
+  }
+
+  if (!price) {
+    alert("Please enter the product price.");
+    return;
+  }
+
+  if (!expirationDate) {
+    alert("Please enter the expiration date.");
+    return;
+  }
+
   var formData = new FormData();
-  formData.append("product_name", $("#productName").val());
-  formData.append("product_img", $("#productImage")[0].files[0]);
-  formData.append("in_stock", $("#in_stocks").val());
-  formData.append("price", $("#price").val());
-  formData.append("expiration_date", $("#expirationDate").val());
+  formData.append("product_name", productName);
+  formData.append("product_img", productImage);
+  formData.append("in_stock", inStock);
+  formData.append("price", price);
+  formData.append("expiration_date", expirationDate);
 
   $.ajax({
     type: "POST",
@@ -302,12 +333,44 @@ function addProductData() {
 }
 
 function updateProductData() {
+  var productId = $("#productId").val();
+  var updateProductName = $("#updateProductName").val();
+  var updateInStocks = $("#updateIn_Stocks").val();
+  var updatePrice = $("#UpdatePrice").val();
+  var updateExpirationDate = $("#updateExpirationDate").val();
+
+  if (!productId) {
+    alert("Please select a product to update.");
+    return;
+  }
+
+  if (!updateProductName) {
+    alert("Please enter a product name.");
+    return;
+  }
+
+  if (!updateInStocks) {
+    alert("Please enter the number of items in stock.");
+    return;
+  }
+
+  if (!updatePrice) {
+    alert("Please enter the product price.");
+    return;
+  }
+
+  if (!updateExpirationDate) {
+    alert("Please enter the expiration date.");
+    return;
+  }
+
+  // Create FormData and append data
   var formData = new FormData();
-  formData.append("product_id", $("#productId").val());
-  formData.append("product_name", $("#updateProductName").val());
-  formData.append("in_stock", $("#updateIn_Stocks").val());
-  formData.append("price", $("#UpdatePrice").val());
-  formData.append("expiration_date", $("#updateExpirationDate").val());
+  formData.append("product_id", productId);
+  formData.append("product_name", updateProductName);
+  formData.append("in_stock", updateInStocks);
+  formData.append("price", updatePrice);
+  formData.append("expiration_date", updateExpirationDate);
 
   $.ajax({
     type: "POST",

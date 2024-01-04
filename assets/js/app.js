@@ -1,8 +1,6 @@
 document.addEventListener('DOMContentLoaded', function () {
-    // Get the current URL
     var currentURL = window.location.href;
 
-    // Mapping between URLs and corresponding tabs
     var tabMappings = [
         { urlPart: "dashboard", tab: "dashboardTab" },
         { urlPart: "pages/products", tab: "productTab" },
@@ -13,7 +11,6 @@ document.addEventListener('DOMContentLoaded', function () {
         { urlPart: "pages/roles", tab: "roleTab" }
     ];
 
-    // Check conditions and add class accordingly
     tabMappings.forEach(mapping => {
         var tabElement = document.getElementById(mapping.tab);
         if (currentURL.includes(mapping.urlPart)) {
